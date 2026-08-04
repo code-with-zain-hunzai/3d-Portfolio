@@ -214,9 +214,15 @@
 }
 
 .loader-title {
+  font-family: var(--fontDisplay);
   font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.2px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+.loader-bracket {
+  font-weight: 500;
+  opacity: 0.75;
 }
 
 @keyframes blink {

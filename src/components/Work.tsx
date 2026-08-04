@@ -56,8 +56,9 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
+        <span className="section-tag">&lt;work /&gt;</span>
         <h2>
-          My <span>Work</span>
+          Selected <span>Projects</span>
         </h2>
 
         <div className="carousel-wrapper">

@@ -177,7 +177,9 @@ const TechStack = () => {
   return (
     <div className="techstack">
       <div className="techstack-header">
-        <span className="techstack-overline">// Tech Stack</span>
+        <span className="techstack-overline section-tag">
+          &lt;stack /&gt;
+        </span>
         <h2>
           Tools I <span>work</span> with
         </h2>

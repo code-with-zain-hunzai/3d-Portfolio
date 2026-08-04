@@ -19,7 +19,7 @@ const Contact = () => {
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <span className="contact-overline">// Contact</span>
+        <span className="contact-overline section-tag">&lt;contact /&gt;</span>
         <h3 className="contact-headline">
           Let’s build something <span>great</span> together.
         </h3>

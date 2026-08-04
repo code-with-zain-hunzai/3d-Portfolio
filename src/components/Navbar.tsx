@@ -4,10 +4,16 @@ import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
-import { links, linkedinHandle, profile } from "../data/profile";
+import { profile } from "../data/profile";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
+
+const navItems = [
+  { index: "01", label: "ABOUT", href: "#about" },
+  { index: "02", label: "WORK", href: "#work" },
+  { index: "03", label: "CONTACT", href: "#contact" },
+];
 
 const Navbar = () => {
   useEffect(() => {
@@ -24,7 +30,7 @@ const Navbar = () => {
     smoother.scrollTop(0);
     smoother.paused(true);
 
-    let links = document.querySelectorAll(".header ul a");
+    let links = document.querySelectorAll(".header a[data-href]");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
@@ -43,35 +49,33 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          {profile.initials}
+        <a href="/#" className="navbar-logo" data-cursor="disable">
+          <span className="logo-bracket">&lt;/</span>
+          <span className="logo-name">{profile.logoText}</span>
+          <span className="logo-bracket">&gt;</span>
+          <span className="logo-caret"></span>
         </a>
+        <nav className="navbar-pill">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <a data-href={item.href} href={item.href}>
+                  <span className="nav-index">{item.index}</span>
+                  <HoverLinks text={item.label} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
         <a
-          href={links.linkedin}
-          className="navbar-connect"
+          data-href="#contact"
+          href="#contact"
+          className="navbar-cta"
           data-cursor="disable"
-          target="_blank"
-          rel="noreferrer"
         >
-          {linkedinHandle}
+          <span className="navbar-cta-dot"></span>
+          Let&apos;s Talk
         </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
-        </ul>
       </div>
 
       <div className="landing-circle1"></div>

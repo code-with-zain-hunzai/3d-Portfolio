@@ -5,6 +5,7 @@ export const profile = {
   firstName: "ZAIN",
   lastName: "UL ABBDIN",
   initials: "ZA",
+  logoText: "zain",
   role: "Full Stack Developer",
   email: "dev.zainulabbdin@gmail.com",
   phone: "+92 342 1083883",
@@ -18,6 +19,3 @@ export const links = {
   fiverr: "https://www.fiverr.com/zainulabbdin20",
   upwork: "https://www.upwork.com/freelancers/~015ed0ad740eb17a30",
 };
-
-// Label shown in the navbar next to the logo.
-export const linkedinHandle = "linkedin.com/in/zain-ul-abbdin";
