@@ -159,15 +159,82 @@ body {
   margin-bottom: -100px;
 }
 
-.techstack h2 {
-  font-size: 80px;
-  text-align: center;
+.techstack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 55% 45% at 50% 55%,
+    var(--accentGlowSoft),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.techstack-header {
   position: absolute;
   width: 100%;
-  top: 120px;
+  top: 80px;
   left: 0;
-  font-weight: 400;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.techstack-overline {
+  font-family: var(--fontDisplay);
+  color: var(--accentColor);
+  font-size: 16px;
+  letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.techstack-header h2 {
+  font-family: var(--fontDisplay);
+  font-size: 72px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 10px 0 0;
+}
+
+.techstack-header h2 span {
+  background: var(--accentGradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.techstack-header p {
+  margin: 12px 0 0;
+  opacity: 0.5;
+  font-size: 16px;
+}
+
+.techstack-chips {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 700px;
+  width: calc(100% - 30px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.techstack-chips span {
+  font-family: var(--fontDisplay);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  color: #eae5ec;
 }
 
 @media screen and (min-width: 768px) {
@@ -177,7 +244,25 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-  .techstack h2 {
-    font-size: 40px;
+  .techstack-header {
+    top: 60px;
+  }
+
+  .techstack-header h2 {
+    font-size: 38px;
+  }
+
+  .techstack-header p {
+    font-size: 14px;
+  }
+
+  .techstack-chips {
+    bottom: 110px;
+    gap: 8px;
+  }
+
+  .techstack-chips span {
+    font-size: 12px;
+    padding: 6px 14px;
   }
 }

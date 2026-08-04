@@ -21,6 +21,12 @@ const imageUrls = [
   "/images/mysql.webp",
   "/images/typescript.webp",
   "/images/javascript.webp",
+  "/images/python-ball.svg",
+  "/images/fastapi-ball.svg",
+  "/images/svelte-ball.svg",
+  "/images/vue-ball.svg",
+  "/images/nestjs-ball.svg",
+  "/images/react-native-ball.svg",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -158,17 +164,25 @@ const TechStack = () => {
           map: texture,
           emissive: "#ffffff",
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          emissiveIntensity: 0.35,
+          metalness: 0.2,
+          roughness: 0.25,
+          clearcoat: 1,
+          clearcoatRoughness: 0.15,
         })
     );
   }, []);
 
+
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <div className="techstack-header">
+        <span className="techstack-overline">// Tech Stack</span>
+        <h2>
+          Tools I <span>work</span> with
+        </h2>
+        <p>Drag the balls around — they’re real physics.</p>
+      </div>
 
       <Canvas
         shadows
@@ -207,6 +221,26 @@ const TechStack = () => {
           <N8AO color="#00291a" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
+      <div className="techstack-chips">
+        {[
+          "React",
+          "Next.js",
+          "TypeScript",
+          "JavaScript",
+          "React Native",
+          "Vue",
+          "Svelte",
+          "Node.js",
+          "Express",
+          "NestJS",
+          "Python",
+          "FastAPI",
+          "MongoDB",
+          "MySQL",
+        ].map((t) => (
+          <span key={t}>{t}</span>
+        ))}
+      </div>
     </div>
   );
 };

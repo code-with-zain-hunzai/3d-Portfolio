@@ -1,86 +1,82 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
+import {
+  MdArrowOutward,
+  MdCopyright,
+  MdMailOutline,
+  MdOutlinePhone,
+  MdOutlineLocationOn,
+} from "react-icons/md";
 import "./styles/Contact.css";
-import { links, linkedinHandle, profile } from "../data/profile";
+import { links, profile } from "../data/profile";
+
+const socials = [
+  { label: "GitHub", handle: "code-with-zain-hunzai", url: links.github },
+  { label: "LinkedIn", handle: "zain-ul-abbdin", url: links.linkedin },
+  { label: "Fiverr", handle: "zainulabbdin20", url: links.fiverr },
+  { label: "Upwork", handle: "Zain ul Abbdin", url: links.upwork },
+];
 
 const Contact = () => {
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <h3>Contact</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Connect</h4>
-            <p>
-              <a
-                href={`mailto:${profile.email}`}
-                data-cursor="disable"
-              >
-                {profile.email}
-              </a>
-            </p>
-            <p>
-              <a
-                href={links.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                data-cursor="disable"
-              >
-                {linkedinHandle}
-              </a>
-            </p>
-            <h4>Education</h4>
-            <p>
-              BS Software Engineering, Virtual University of Pakistan —
-              2022–2026
-            </p>
+        <span className="contact-overline">// Contact</span>
+        <h3 className="contact-headline">
+          Let’s build something <span>great</span> together.
+        </h3>
+        <p className="contact-sub">
+          Have a project in mind, or just want to say hi? My inbox is always
+          open.
+        </p>
+
+        <div className="contact-cta-row">
+          <a
+            href={`mailto:${profile.email}`}
+            className="contact-cta"
+            data-cursor="disable"
+          >
+            <MdMailOutline />
+            {profile.email}
+            <MdArrowOutward className="contact-cta-arrow" />
+          </a>
+          <div className="contact-meta">
+            <span>
+              <MdOutlinePhone /> {profile.phone}
+            </span>
+            <span>
+              <MdOutlineLocationOn /> {profile.location}
+            </span>
           </div>
-          <div className="contact-box">
-            <h4>Social</h4>
+        </div>
+
+        <div className="contact-socials">
+          {socials.map((s) => (
             <a
-              href={links.github}
+              key={s.label}
+              href={s.url}
               target="_blank"
               rel="noreferrer"
+              className="contact-card"
               data-cursor="disable"
-              className="contact-social"
             >
-              GitHub <MdArrowOutward />
+              <div className="contact-card-text">
+                <span className="contact-card-label">{s.label}</span>
+                <span className="contact-card-handle">{s.handle}</span>
+              </div>
+              <MdArrowOutward className="contact-card-arrow" />
             </a>
-            <a
-              href={links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              LinkedIn <MdArrowOutward />
-            </a>
-            <a
-              href={links.fiverr}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Fiverr <MdArrowOutward />
-            </a>
-            <a
-              href={links.upwork}
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Upwork <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Zain ul Abbdin</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2026
-            </h5>
-          </div>
+          ))}
+        </div>
+
+        <div className="contact-footer">
+          <p className="contact-edu">
+            BS Software Engineering — Virtual University of Pakistan, 2022–2026
+          </p>
+          <p className="contact-credit">
+            Designed &amp; Developed by <span>Zain ul Abbdin</span>
+          </p>
+          <p className="contact-copy">
+            <MdCopyright /> 2026
+          </p>
         </div>
       </div>
     </div>
