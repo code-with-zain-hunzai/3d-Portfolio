@@ -4,7 +4,10 @@ Personal portfolio site for **Zain Ul Abbdin**, a Full Stack Developer working a
 Built with React, TypeScript and Vite, with an animated 3D character scene driven by Three.js and
 React Three Fiber, and scroll-based motion handled by GSAP.
 
+<<<<<<< HEAD
 > **Note:** add your own screenshot here once deployed.
+=======
+>>>>>>> d1586e6f5da48e719220f419f5e16def225298d7
 
 ## Contents
 
